@@ -66,3 +66,4 @@ prisma/
 | `npm run db:studio` | Open Prisma Studio |
 | `npm run docker:up` | Docker compose up |
 | `npm run docker:dev` | Docker compose dev (hot reload) |
+| `npm run fresh` | Full reset: stop containers, remove volumes & caches, start fresh (for testing new-user install) |

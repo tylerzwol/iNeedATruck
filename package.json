@@ -14,7 +14,8 @@
     "db:studio": "prisma studio",
     "docker:up": "docker compose up --build",
     "docker:down": "docker compose down",
-    "docker:dev": "docker compose -f docker-compose.dev.yml up"
+    "docker:dev": "docker compose -f docker-compose.dev.yml up",
+    "fresh": "docker compose -f docker-compose.dev.yml down -v && rm -rf node_modules .next && docker compose -f docker-compose.dev.yml up"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.4.0",
