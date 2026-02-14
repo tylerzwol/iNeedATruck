@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { JOB_REQUEST_STORAGE_KEY } from "@/lib/constants";
 
-export function FindPageHeader() {
+export function FindPageHeader({ requestedServices = [] }: { requestedServices?: string[] }) {
   const [hasJobRequest, setHasJobRequest] = useState(false);
 
   useEffect(() => {

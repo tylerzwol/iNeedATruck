@@ -107,7 +107,8 @@ export default function GetStartedPage() {
       sessionStorage.setItem(JOB_REQUEST_STORAGE_KEY, JSON.stringify(jobRequest));
     }
 
-    router.push("/find");
+    const servicesParam = selectedServices.length > 0 ? `?services=${encodeURIComponent(selectedServices.join(","))}` : "";
+    router.push(`/find${servicesParam}`);
   }
 
   return (
