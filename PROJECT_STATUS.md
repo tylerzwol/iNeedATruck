@@ -1,5 +1,7 @@
 # Project status: tradeoffs, limitations & roadmap
 
+> **⚠️ No testing.** This project has no unit tests, integration tests, or E2E tests. The codebase must be thoroughly reviewed and tested before considering any deployment.
+
 ## Tradeoffs made
 
 To ship an MVP quickly, several simplifications were chosen:
@@ -41,6 +43,11 @@ To ship an MVP quickly, several simplifications were chosen:
 - **No discount enforcement.** Job creation does not apply seasonal offer discounts.
 - **No service-type or truck-owner targeting.** Offers are global; no “snow plow only” or “premium members only” logic.
 
+### Testing & deployment readiness
+
+- **No tests.** No unit tests, integration tests, or E2E tests exist. All behavior is untested.
+- **Not deployment-ready.** Requires thorough code review, security review, and a full test suite before any production deployment.
+
 ### Other
 
 - **No payments.** Jobs are created with a `totalAmount` but no Stripe/PayPal integration.
@@ -78,7 +85,14 @@ To ship an MVP quickly, several simplifications were chosen:
 - **Document OCR** to extract license/registration details and flag mismatches.
 - **Expiration checks** and alerts when license or insurance is about to expire.
 
-### 5. Additional priorities
+### 5. Testing (required before deployment)
+
+- **Unit tests** for API routes, validations, and business logic.
+- **Integration tests** for critical flows (onboarding, job creation, admin).
+- **E2E tests** for user journeys (find truck → request job, list truck flow).
+- **Security review** before any production deployment.
+
+### 6. Additional priorities
 
 - **Payments** (Stripe) for deposits, full payment, or platform fees.
 - **Notifications** (email/SMS) for job creation, status changes, and reminders.
