@@ -12,37 +12,17 @@ Connect local truck owners with customers. Platform fee per job, seasonal offeri
 
 ## Quick start
 
-### Option 1: Docker (recommended for in-house)
-
 ```bash
-# Development (hot reload)
+git clone <your-repo-url>
+cd iNeedATruck
 docker compose -f docker-compose.dev.yml up
-
-# Production-style
-docker compose up --build
 ```
 
-- App: http://localhost:3000
-- Postgres: localhost:5433 (user: postgres, password: postgres, db: ineedatruck)
+This starts Postgres, runs schema sync, seeds demo data, and starts the app with hot reload. When you see "Ready" in the logs:
 
-Postgres uses port 5433 by default to avoid conflict with other local Postgres instances.
+**[http://localhost:3000](http://localhost:3000)**
 
-### Option 2: Local dev
-
-```bash
-# Start Postgres only (or use existing)
-docker compose up postgres -d
-
-# Copy env and run app
-cp .env.example .env
-npm install
-npx prisma generate
-npx prisma db push --accept-data-loss   # or --force-reset if migrating from old schema
-npm run db:seed
-npm run dev
-```
-
-**If migrating from an older schema:** Run `npx prisma db push --force-reset` (wipes DB) or `npx prisma migrate reset` to apply the truck onboarding schema.
+Postgres: `localhost:5433` (user: postgres, password: postgres, db: ineedatruck)
 
 ## Features
 
