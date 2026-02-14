@@ -12,7 +12,7 @@ type Owner = {
   insuranceConfirmed: boolean;
   isVerified: boolean;
   user: { email: string };
-  pricingProfile: { hourlyRate: { toString: () => string }; minimumJobPrice: { toString: () => string }; perMileRate: { toString: () => string } | null } | null;
+  pricingProfile: { hourlyRate: number; minimumJobPrice: number; perMileRate: number | null } | null;
 };
 
 export function TruckOwnerEditForm({ owner, className = "" }: { owner: Owner; className?: string }) {
@@ -85,11 +85,11 @@ export function TruckOwnerEditForm({ owner, className = "" }: { owner: Owner; cl
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="hourlyRate" className="block text-sm font-medium text-stone-700 dark:text-stone-300">Hourly rate ($)</label>
-            <input id="hourlyRate" name="hourlyRate" type="number" min="0" step="0.01" defaultValue={Number(owner.pricingProfile.hourlyRate)} className="mt-1 w-full rounded-lg border border-stone-300 bg-white px-3 py-2 dark:border-stone-600 dark:bg-stone-800" />
+            <input id="hourlyRate" name="hourlyRate" type="number" min="0" step="0.01" defaultValue={owner.pricingProfile.hourlyRate} className="mt-1 w-full rounded-lg border border-stone-300 bg-white px-3 py-2 dark:border-stone-600 dark:bg-stone-800" />
           </div>
           <div>
             <label htmlFor="minimumJobPrice" className="block text-sm font-medium text-stone-700 dark:text-stone-300">Min job price ($)</label>
-            <input id="minimumJobPrice" name="minimumJobPrice" type="number" min="0" step="0.01" defaultValue={Number(owner.pricingProfile.minimumJobPrice)} className="mt-1 w-full rounded-lg border border-stone-300 bg-white px-3 py-2 dark:border-stone-600 dark:bg-stone-800" />
+            <input id="minimumJobPrice" name="minimumJobPrice" type="number" min="0" step="0.01" defaultValue={owner.pricingProfile.minimumJobPrice} className="mt-1 w-full rounded-lg border border-stone-300 bg-white px-3 py-2 dark:border-stone-600 dark:bg-stone-800" />
           </div>
         </div>
       )}
