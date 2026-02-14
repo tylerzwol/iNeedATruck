@@ -13,7 +13,7 @@ Connect local truck owners with customers. Platform fee per job, seasonal offeri
 ## Quick start
 
 ```bash
-git clone <your-repo-url>
+git clone git@github.com:tylerzwol/iNeedATruck.git
 cd iNeedATruck
 docker compose -f docker-compose.dev.yml up
 ```
